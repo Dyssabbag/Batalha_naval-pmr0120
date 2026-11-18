@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "author": "Grupo M - Batalha Naval",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 40, "left": -40, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -110,
+      "left": 140,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-neopixel-matrix",
+      "id": "matrix",
+      "top": -133.44,
+      "left": -220.7,
+      "attrs": { "rows": "8", "cols": "8" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_cima",
+      "top": 80,
+      "left": 170,
+      "attrs": { "color": "blue", "label": "Cima" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_baixo",
+      "top": 180,
+      "left": 170,
+      "attrs": { "color": "blue", "label": "Baixo" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_esq",
+      "top": 130,
+      "left": 110,
+      "attrs": { "color": "blue", "label": "Esq" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_dir",
+      "top": 130,
+      "left": 230,
+      "attrs": { "color": "blue", "label": "Dir" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_gira",
+      "top": 240,
+      "left": 120,
+      "attrs": { "color": "yellow", "label": "Gira" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_ok",
+      "top": 240,
+      "left": 220,
+      "attrs": { "color": "green", "label": "OK" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "oled:GND", "esp:GND.2", "black", [ "v-10", "h-50" ] ],
+    [ "oled:VCC", "esp:3V3", "red", [ "v-15", "h-180" ] ],
+    [ "oled:SCL", "esp:D22", "yellow", [ "v10", "h-30" ] ],
+    [ "oled:SDA", "esp:D21", "blue", [ "v15", "h-20" ] ],
+    [ "matrix:GND", "esp:GND.1", "black", [ "v10", "h40" ] ],
+    [ "matrix:VCC", "esp:VIN", "red", [ "v15", "h30" ] ],
+    [ "matrix:DIN", "esp:D4", "orange", [ "v20", "h150" ] ],
+    [ "btn_cima:1.l", "esp:D13", "blue", [] ],
+    [ "btn_cima:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_dir:1.l", "esp:D12", "blue", [] ],
+    [ "btn_dir:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_baixo:1.l", "esp:D14", "blue", [] ],
+    [ "btn_baixo:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_esq:1.l", "esp:D27", "blue", [] ],
+    [ "btn_esq:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_gira:1.l", "esp:D26", "yellow", [] ],
+    [ "btn_gira:2.l", "esp:GND.1", "black", [] ],
+    [ "btn_ok:1.l", "esp:D25", "green", [] ],
+    [ "btn_ok:2.l", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
