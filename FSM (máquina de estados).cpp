@@ -213,5 +213,4 @@ class TMaquinaEstados {
 };
 
 TMaquinaEstados fsm;
-
 #endif
